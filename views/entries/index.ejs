@@ -1,0 +1,30 @@
+<%- include('../modules/_header', {page: "Entries"}); %>
+<%- include('../modules/_navs', {page: "Inventories"}); %>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap
+    align-items-center border-bottom mt-0 mb-3 mt-md-3 py-4">
+    <h1 class="h3 content-header">
+        <i class="ic-hour-glass pr-2"></i>
+        Entries
+    </h1>
+    <div class="content-action btn-toolbar mb-2 mb-md-0">
+        <a href="/inventories" class="btn btn-sm btn-secondary mr-3">
+            <i class=" ic-chevron-left"></i>
+            Back to Inventories
+        </a>
+        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+            data-target="#addInventory">
+            <i class="ic-plus"></i>
+            Add Inventory
+        </button>
+    </div>
+</div>
+
+<%- include('../modules/_alert'); %>
+<%- include('../modules/_search-with-date.ejs', {path: 'entries', placeholderText: 'Enter product code'}); %>
+<%- include('./_data'); %>
+<%- include('../modules/_pagination', {path: 'entries'}); %>
+
+<%- include('../inventories/_collect-form'); %>
+<%- include('../modules/_delete-form', {deleteItemTypes: 'entries'}); %>
+<%- include('../modules/_footer'); %>
