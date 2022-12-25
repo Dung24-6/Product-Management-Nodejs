@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const tz = require('mongoose-timezone');
+const mongoose = require("mongoose");
+const tz = require("mongoose-timezone");
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -20,6 +20,21 @@ const productSchema = new mongoose.Schema({
     required: true,
     min: 1,
   },
+  dateManufacture: {
+    type: String,
+  },
+  dateServices: {
+    type: Number,
+  },
+  parameters: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
+  status: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -27,4 +42,4 @@ const productSchema = new mongoose.Schema({
 });
 
 productSchema.plugin(tz);
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model("Product", productSchema);
