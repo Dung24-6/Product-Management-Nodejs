@@ -1,49 +1,49 @@
-const Joi = require('@hapi/joi');
+const Joi = require('@hapi/joi')
 
 const validateSchema = function (schema, data) {
-  const validator = schema.validate(data);
+  const validator = schema.validate(data)
   if (validator.error) {
-    validator.error = validator.error.details[0].message.toUpperCase();
+    validator.error = validator.error.details[0].message.toUpperCase()
   }
-  return validator;
-};
+  return validator
+}
 
-const RegisterValidator = (data) => {
+const RegisterValidator = data => {
   const schema = Joi.object({
     name: Joi.string().min(5).max(100).required(),
     email: Joi.string().lowercase().min(5).max(100).required().email().trim(),
     password: Joi.string().required().min(6),
-    role: Joi.string().required().lowercase(),
-  });
-  return validateSchema(schema, data);
-};
+    role: Joi.string().required().lowercase()
+  })
+  return validateSchema(schema, data)
+}
 
-const LoginValidator = (data) => {
+const LoginValidator = data => {
   const schema = Joi.object({
     email: Joi.string().lowercase().min(5).max(100).required().email().trim(),
-    password: Joi.string().required().min(6),
-  });
-  return validateSchema(schema, data);
-};
+    password: Joi.string().required().min(6)
+  })
+  return validateSchema(schema, data)
+}
 
-const ProductValidator = (data) => {
+const ProductValidator = data => {
   const schema = Joi.object({
     name: Joi.string().required().trim(),
     code: Joi.string().uppercase().required().trim(),
-    rate: Joi.number().required(),
-  });
-  return validateSchema(schema, data);
-};
+    rate: Joi.number().required()
+  })
+  return validateSchema(schema, data)
+}
 
-const EntryValidator = (data) => {
+const EntryValidator = data => {
   const schema = Joi.object({
     product: Joi.string().uppercase().required().trim(),
-    quantity: Joi.number().min(1).required(),
-  });
-  return validateSchema(schema, data);
-};
+    quantity: Joi.number().min(1).required()
+  })
+  return validateSchema(schema, data)
+}
 
-const ServicingValidator = (data) => {
+const ServicingValidator = data => {
   const schema = Joi.object({
     name: Joi.string().required().trim(),
     address: Joi.string().required().trim(),
@@ -52,12 +52,12 @@ const ServicingValidator = (data) => {
     quantity: Joi.number().min(1).required(),
     serviceCharge: Joi.number().min(0).required(),
     deliveryDate: Joi.date().required(),
-    status: Joi.string().required(),
-  });
-  return validateSchema(schema, data);
-};
+    status: Joi.string().required()
+  })
+  return validateSchema(schema, data)
+}
 
-const ExpenseValidator = (data) => {
+const ExpenseValidator = data => {
   const schema = Joi.object({
     purpose: Joi.string().required().trim(),
     equipments: Joi.number().min(0),
@@ -67,21 +67,21 @@ const ExpenseValidator = (data) => {
     stationeryTools: Joi.number().min(0),
     salaryUtilities: Joi.number().min(0),
     marketing: Joi.number().min(0),
-    others: Joi.number().min(0),
-  });
-  return validateSchema(schema, data);
-};
+    others: Joi.number().min(0)
+  })
+  return validateSchema(schema, data)
+}
 
-const CustomerValidator = (data) => {
+const CustomerValidator = data => {
   const schema = Joi.object({
     name: Joi.string().required().trim(),
     address: Joi.string().required().trim(),
-    phone: Joi.string().required().trim(),
-  });
-  return validateSchema(schema, data);
-};
+    phone: Joi.string().required().trim()
+  })
+  return validateSchema(schema, data)
+}
 
-const SaleValidator = (data) => {
+const SaleValidator = data => {
   const schema = Joi.object({
     customer: Joi.string().required().trim(),
     product: Joi.string().required().trim(),
@@ -90,20 +90,20 @@ const SaleValidator = (data) => {
     shippingCost: Joi.number().min(0),
     discount: Joi.number().min(0),
     paid: Joi.number().min(0),
-    salesDate: Joi.date().required(),
-  });
-  return validateSchema(schema, data);
-};
+    salesDate: Joi.date().required()
+  })
+  return validateSchema(schema, data)
+}
 
-const ReturnValidator = (data) => {
+const ReturnValidator = data => {
   const schema = Joi.object({
     customer: Joi.string().required().trim(),
     product: Joi.string().required().trim(),
     quantity: Joi.number().min(0),
-    amount: Joi.number().min(0),
-  });
-  return validateSchema(schema, data);
-};
+    amount: Joi.number().min(0)
+  })
+  return validateSchema(schema, data)
+}
 
 module.exports = {
   RegisterValidator,
@@ -114,5 +114,5 @@ module.exports = {
   ExpenseValidator,
   CustomerValidator,
   SaleValidator,
-  ReturnValidator,
-};
+  ReturnValidator
+}
