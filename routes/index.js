@@ -36,6 +36,6 @@ router.use(
 router.use('/expenses', PermissionHandler(['admin', 'expense']), expenseRouter);
 router.use('/customers', PermissionHandler(['admin', 'sales']), customerRouter);
 router.use('/sales', PermissionHandler(['admin', 'sales']), saleRouter);
-router.use('/returns', PermissionHandler(['admin', 'sales']), returnRouter);
+router.use('/returns', PermissionHandler(['admin', 'servicing']), returnRouter);
 
 module.exports = router;

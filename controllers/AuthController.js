@@ -23,16 +23,16 @@ AuthController.login = async (req, res) => {
     return res.redirect("/");
   }
 
-  // const validPassword = await bcrypt.compare(password, user.password);
-  // if (!validPassword) {
-  //   req.flash("error", "Invalid Password!");
-  //   return res.redirect("/");
-  // }
-
-  if (password != user.password) {
-    req.flash('error', 'Invalid Password!');
-    return res.redirect('/');
+  const validPassword = await bcrypt.compare(password, user.password);
+  if (!validPassword) {
+    req.flash("error", "Invalid Password!");
+    return res.redirect("/");
   }
+
+  // if (password != user.password) {
+  //   req.flash('error', 'Invalid Password!');
+  //   return res.redirect('/');
+  // }
 
   req.session.user = { name: user.name, role: user.role };
   res.locals.user = req.session.user;

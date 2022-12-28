@@ -25,8 +25,12 @@
                     <td>
                         <% if(servicing.status =='received'){ %>
                             <span class="badge badge-danger text-uppercase">received</span>
-                        <% } else { %>
+                        <% } else if(servicing.status =='cantfix') { %>
+                            <span class="badge badge-danger text-uppercase">can't fix</span>
+                        <% } else if(servicing.status =='completed') { %>
                             <span class="badge badge-success text-uppercase">completed</span>
+                        <% } else { %>
+                            <span class="badge badge-success text-uppercase">Returned</span>
                         <% } %>
                     </td>
                     <td><%= servicing.deliveryDate.toLocaleDateString(); %></td>
@@ -38,7 +42,22 @@
                                 <i class="ic-check pr-1"></i>Completed
                             </button>
                         </form>
+                        <form class="d-inline-block p-0 m-0" action="<%=`/servicing/${servicing._id}?_method=patch`%>" method="post">
+                            <input type="hidden" value="cantfix" name="status">
+                            <button class="btn d-inline-block btn-link table__actions-btn mb-2" href="#" class="table__actions-btn">
+                                <i class="ic-check pr-1"></i>Can't fix
+                            </button>
+                        </form>
                         <% } %>
+                        <% if(servicing.status =='cantfix'){ %>
+                            <form class="d-inline-block p-0 m-0" action="<%=`/servicing/${servicing._id}?_method=patch`%>" method="post">
+                                <input type="hidden" value="returned" name="status">
+                                <button type="button" class="btn d-inline-block btn-link table__actions-btn mb-2" href="#" class="table__actions-btn"
+                                data-toggle="modal" data-target="#addReturns">
+                                    <i class="ic-check pr-1"></i>Return
+                                </button>
+                            </form>
+                            <% } %>
                         <a href="#" class="table__actions-btn servicingEditButton"
                             data-toggle="modal" data-target="#addServicing"><i
                                 class="ic-pencil pr-1"></i>Edit</a>
@@ -54,3 +73,4 @@
         </table>
     </div>
 </div>
+<%- include('../returns/_collect-form'); %>
