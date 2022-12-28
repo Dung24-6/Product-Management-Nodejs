@@ -29,10 +29,10 @@ const productSchema = new mongoose.Schema({
   parameters: {
     type: String,
   },
-  image: {
+  status: {
     type: String,
   },
-  status: {
+  image: {
     type: String,
   },
   createdAt: {

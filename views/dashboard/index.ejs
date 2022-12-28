@@ -10,8 +10,7 @@ include('../modules/_navs', {page: "Dashboard"}); %>
 <% if(user.role == 'admin') { %>
 <nav class="mt-3">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a
-      class="
+    <a class="
         nav-item nav-link
         <%
         if
@@ -21,14 +20,8 @@ include('../modules/_navs', {page: "Dashboard"}); %>
         %>active<%
         }
         %>
-      "
-      data-toggle="tab"
-      href="#sales"
-      role="tab"
-      ><span class="text-success">Sales Overview</span></a
-    >
-    <a
-      class="
+      " data-toggle="tab" href="#sales" role="tab"><span class="text-success">Sales Overview</span></a>
+    <a class="
         nav-item nav-link
         <%
         if
@@ -38,14 +31,8 @@ include('../modules/_navs', {page: "Dashboard"}); %>
         %>active<%
         }
         %>
-      "
-      data-toggle="tab"
-      href="#expense"
-      role="tab"
-      ><span class="text-danger">Expense Overview</span></a
-    >
-    <a
-      class="
+      " data-toggle="tab" href="#expense" role="tab"><span class="text-danger">Expense Overview</span></a>
+    <a class="
         nav-item nav-link
         <%
         if
@@ -55,14 +42,8 @@ include('../modules/_navs', {page: "Dashboard"}); %>
         %>active<%
         }
         %>
-      "
-      data-toggle="tab"
-      href="#returns"
-      role="tab"
-      ><span class="text-warning">Returns Overview</span></a
-    >
-    <a
-      class="
+      " data-toggle="tab" href="#returns" role="tab"><span class="text-warning">Returns Overview</span></a>
+    <a class="
         nav-item nav-link
         <%
         if
@@ -72,17 +53,11 @@ include('../modules/_navs', {page: "Dashboard"}); %>
         %>active<%
         }
         %>
-      "
-      data-toggle="tab"
-      href="#inventory"
-      role="tab"
-      ><span class="text-info">Inventory Overview</span></a
-    >
+      " data-toggle="tab" href="#inventory" role="tab"><span class="text-info">Inventory Overview</span></a>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div
-    class="
+  <div class="
       tab-pane
       fade
       <%
@@ -94,14 +69,10 @@ include('../modules/_navs', {page: "Dashboard"}); %>
       active<%
       }
       %>
-    "
-    id="sales"
-    role="tabpanel"
-  >
+    " id="sales" role="tabpanel">
     <%- include('./_overview_sales') %>
   </div>
-  <div
-    class="
+  <div class="
       tab-pane
       fade
       <%
@@ -113,14 +84,10 @@ include('../modules/_navs', {page: "Dashboard"}); %>
       active<%
       }
       %>
-    "
-    id="expense"
-    role="tabpanel"
-  >
+    " id="expense" role="tabpanel">
     <%- include('./_overview_expense') %>
   </div>
-  <div
-    class="
+  <div class="
       tab-pane
       fade
       <%
@@ -132,14 +99,10 @@ include('../modules/_navs', {page: "Dashboard"}); %>
       active<%
       }
       %>
-    "
-    id="returns"
-    role="tabpanel"
-  >
+    " id="returns" role="tabpanel">
     <%- include('./_overview_returns.ejs') %>
   </div>
-  <div
-    class="
+  <div class="
       tab-pane
       fade
       <%
@@ -151,18 +114,56 @@ include('../modules/_navs', {page: "Dashboard"}); %>
       active<%
       }
       %>
-    "
-    id="inventory"
-    role="tabpanel"
-  >
+    " id="inventory" role="tabpanel">
     <%- include('./_overview_inventory.ejs') %>
   </div>
 </div>
 
 <% } %>
 
-<p class="text-center text-muted mt-4">
-  &copy; Z <%= new Date().getFullYear() %> | We Make Consumers'
-  Electronics.
-</p>
-<%- include('../modules/_footer'); %>
+<% if(user.role == 'sales') { %>
+<nav class="mt-3">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="
+        nav-item nav-link
+        <%
+        if
+        (queryString.overview
+        ==
+        'sales'){
+        %>active<%
+        }
+        %>
+      " data-toggle="tab" href="#sales" role="tab"><span class="text-success">Sales Overview</span></a -->
+    >
+    <%- include('./_overview_sales') %>
+  </div>
+  <% } %>
+
+
+
+  <% if(user.role == 'inventory') { %>
+  <a class="
+        nav-item nav-link
+        <%
+        if
+        (queryString.overview
+        ==
+        'inventory'){
+        %>active<%
+        }
+        %>
+      " data-toggle="tab" href="#inventory" role="tab"><span class="text-info">Inventory Overview</span></a>
+
+  <%- include('./_overview_inventory.ejs') %>
+  <% } %>
+
+
+
+
+
+  <p class="text-center text-muted mt-4">
+    &copy; Z <%= new Date().getFullYear() %> | We Make Consumers'
+    Electronics.
+  </p>
+  <%- include('../modules/_footer'); %>
