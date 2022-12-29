@@ -6,7 +6,7 @@
                     <th>Date</th>
                     <th>Title</th>
                     <th>Details</th>
-                    <th>Amount(Tk.)</th>
+                    <th>Amount(VND)</th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -23,7 +23,7 @@
                     <td><%= expense.purpose %></td>
                     <td>
                         <div class="expense-box">
-                            <span>Equipments: <strong>
+                            <span>Total Rate: <strong>
                                 <%if(expense.equipments) { %>
                                     <%= expense.equipments.toLocaleString(); %>
                                 <% } else { %> <small>N/A</small> <% } %>
@@ -39,7 +39,7 @@
                                         <%= expense.salaryUtilities.toLocaleString(); %>
                                     <% } else { %> <small>N/A</small> <% } %>
                                 </strong></span>
-                            <span>Retail H/Ds: <strong>
+                            <span>Tax: <strong>
                                 <%if(expense.retailHoldings) { %>
                                     <%= expense.retailHoldings.toLocaleString(); %>
                                 <% } else { %> <small>N/A</small> <% } %>
@@ -54,7 +54,7 @@
                                     <%= expense.marketing.toLocaleString(); %>
                                 <% } else { %> <small>N/A</small> <% } %>
                             </strong></span>
-                            <span>Courier & Commission: <strong>
+                            <span>Rent: <strong>
                                 <%if(expense.courierCommission) { %>
                                     <%= expense.courierCommission.toLocaleString(); %>
                                 <% } else { %> <small>N/A</small> <% } %>

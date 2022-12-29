@@ -31,13 +31,13 @@ const docDefinition = (data) => {
         margin: 6,
       },
       {
-        text: 'Rate (Tk.)',
+        text: 'Rate (VND)',
         style: 'tableHeader',
         alignment: 'center',
         margin: 6,
       },
       {
-        text: 'Amount (Tk.)',
+        text: 'Amount (VND)',
         style: 'tableHeader',
         alignment: 'center',
         margin: 6,
@@ -80,7 +80,7 @@ const docDefinition = (data) => {
       { text: '' },
       { text: '' },
       {
-        text: 'Amount (Tk.)',
+        text: 'Amount (VND)',
         style: 'tableHeader',
         alignment: 'center',
         margin: 6,
