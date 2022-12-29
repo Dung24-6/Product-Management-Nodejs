@@ -5,8 +5,9 @@ const { ProductValidator } = require('../middlewares/Validator')
 const ProductController = {}
 
 ProductController.create = async (req, res) => {
-  const { name, code, rate } = req.body
-  const validator = ProductValidator({ name, code, rate })
+  req.body.image=req.file.path.slice(7,req.file.path.length);
+  const { name, code, rate, image,description } = req.body
+  const validator = ProductValidator({ name, code, rate, image ,description})
   if (validator.error) {
     req.flash('error', validator.error)
     return res.redirect('/products')
@@ -21,8 +22,8 @@ ProductController.create = async (req, res) => {
   }
 
   try {
-    const { name, code, rate } = validator.value
-    const savedProduct = await new Product({ name, code, rate }).save()
+    const { name, code, rate, image,description } = validator.value
+    const savedProduct = await new Product({ name, code, rate, image,description }).save()
     await new Inventory({
       product: savedProduct._id
     }).save()

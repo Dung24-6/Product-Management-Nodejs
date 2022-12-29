@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
   dateServices: {
     type: Number,
   },
-  parameters: {
+  description: {
     type: String,
   },
   status: {

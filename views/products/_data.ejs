@@ -6,6 +6,8 @@
                     <th>Product Name</th>
                     <th>Product Code</th>
                     <th>Rates(Tk.)</th>
+                    <th>Product Image</th>
+                    <th>Description</th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -16,6 +18,9 @@
                     <td><%= product.name %></td>
                     <td><%= product.code %></td>
                     <td><%= product.rate.toLocaleString(); %></td>
+                    <td><img src="<%= product.image %>" alt="" height="100px" width="100px"></td>
+                    <td><%= product.description %></td>
+                    <!-- <td><%= product.image %></td> -->
 
                     <td class="table__actions text-center"
                         data-item-id="<%= product.id %>">

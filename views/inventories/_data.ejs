@@ -7,7 +7,8 @@
                     <th>Quantity (Total)</th>
                     <th>Sales (Total)</th>
                     <th>Returns (Total)</th>
-                    <th>Left Over</th>                  
+                    <th>Left Over</th>    
+                    <th>Image</th>              
                 </tr>
             </thead>
             <tbody class="table__body">
@@ -18,7 +19,9 @@
                     <td class="font-weight-bold"><%= inventory.quantity.toLocaleString(); %></td>
                     <td class="text-success font-weight-bold"><%= inventory.sales.toLocaleString(); %></td>
                     <td class="text-danger font-weight-bold"><%= inventory.returns.toLocaleString(); %></td>
-                    <td class="text-info font-weight-bold"> <%= inventory.leftOver.toLocaleString(); %></td>                   
+                    <td class="text-info font-weight-bold"> <%= inventory.leftOver.toLocaleString(); %></td>  
+                      
+                    <td><img src="<%= inventory.product.image %>" alt="" height="100px" width="100px"></td>               
                 </tr>
                 <% })} %>
             </tbody>

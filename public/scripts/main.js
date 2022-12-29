@@ -163,6 +163,7 @@ const productFormTitle = document.querySelector('.productForm-title');
 const productFormName = document.querySelector('.productForm-name');
 const productFormCode = document.querySelector('.productForm-code');
 const productFormRate = document.querySelector('.productForm-rate');
+const productFormImage = document.querySelector('.productForm-image');
 const productEditButtons = document.querySelectorAll('.productEditButton');
 if (productEditButtons) {
   productEditButtons.forEach((btn) => {
@@ -176,6 +177,7 @@ if (productEditButtons) {
       productFormCode.value = data.code;
       productFormCode.setAttribute('disabled', 'true');
       productFormRate.value = data.rate;
+      productFormImage.value = data.image;
       $('[data-dismiss="modal"]').on('click', function () {
         productForm.reset();
         productFormTitle.innerText = 'Add New Product';

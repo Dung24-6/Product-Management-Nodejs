@@ -19,6 +19,9 @@ const inventorySchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  image:{
+    type:String,
+  },
   product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Product',

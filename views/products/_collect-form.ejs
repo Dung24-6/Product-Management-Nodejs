@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/products" method="post" class="productForm">
+                <form action="/products/create" method="post" class="productForm" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Product Name</label>
                         <input minlength="3" type="text" class="form-control productForm-name" name="name" required />
@@ -25,6 +25,17 @@
                         <label for="rate">Product Rates</label>
                         <input type="number" class="form-control productForm-rate"
                             name="rate" required min="1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Product Image</label>                   
+                        
+                            <input type="file" name="image">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control productForm-description"
+                            name="description" required min="1"/>
                     </div>
 
                     <div class="modal-footer">

@@ -30,7 +30,9 @@ const ProductValidator = data => {
   const schema = Joi.object({
     name: Joi.string().required().trim(),
     code: Joi.string().uppercase().required().trim(),
-    rate: Joi.number().required()
+    rate: Joi.number().required(),
+    image: Joi.string(),
+    description:Joi.string()
   })
   return validateSchema(schema, data)
 }

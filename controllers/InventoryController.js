@@ -8,6 +8,7 @@ InventoryController.read = async (req, res) => {
   const getProducts = await Product.find({});
   let getData = getProducts.map(async (product) => {
     const productId = product.id;
+    const productImage = product.image;
     const inventoryProduct = await Entry.find({
       product: productId,
       type: 'inventory',
@@ -52,6 +53,7 @@ InventoryController.read = async (req, res) => {
             leftOver: leftOver,
             returns: data[id].returnQuantity,
             sales: data[id].salesQuantity,
+            image: data[id].productImage,
           },
         }
       );
