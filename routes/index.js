@@ -21,7 +21,7 @@ router.use(AuthHandler);
 router.use('/api', apiRouter);
 router.use('/dashboard', dashboardRouter);
 router.use('/users', PermissionHandler(['admin']), userRouter);
-router.use('/products', PermissionHandler(['admin']), productRouter);
+router.use('/products', PermissionHandler(['admin','sales']), productRouter);
 router.use(
   '/inventories',
   PermissionHandler(['admin', 'inventory']),

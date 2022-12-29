@@ -3,8 +3,11 @@
 ================================*/
 
 :root {
-  --primary: #6a60a9;
-  --secondary: #ffbc42;
+  /* --primary: #6a60a9; */
+  --primary: #7f071f;
+  /* --secondary: #ffbc42; */
+  --secondary:#d6b2da;
+  
   --gray: #e0e0e0;
   --light: #fff;
   --dark: rgb(35, 35, 35);
