@@ -1,7 +1,7 @@
 # Project Management
 
 
-![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png)
+![Logo](https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_f0b606abb6d19089febc9faeeba5bc05/nodejs-development-services.png)
 
 
 
@@ -37,7 +37,8 @@ Or for dev , use nodemon
     
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image](https://user-images.githubusercontent.com/70428921/210583625-dcef2106-246b-4efd-955e-c2890defd19e.png)
+
 
 
 ## Environment Variables
